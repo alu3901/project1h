@@ -3,11 +3,18 @@ package es.fabio.config;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.github.vanroy.springdata.jest.JestElasticsearchTemplate;
+import com.github.vanroy.springdata.jest.mapper.DefaultJestResultsMapper;
+import io.searchbox.client.JestClient;
 import org.springframework.boot.autoconfigure.data.elasticsearch.ElasticsearchProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.data.elasticsearch.core.EntityMapper;
+import org.springframework.data.elasticsearch.core.convert.ElasticsearchConverter;
+import org.springframework.data.elasticsearch.core.mapping.SimpleElasticsearchMappingContext;
 import org.springframework.data.mapping.MappingException;
 
 import java.io.IOException;
@@ -27,6 +34,18 @@ public class ElasticsearchConfiguration {
     @Bean
     public EntityMapper getEntityMapper() {
         return new CustomEntityMapper(mapper);
+    }
+
+    @Bean
+    @Primary
+    public ElasticsearchOperations elasticsearchTemplate(JestClient jestClient,
+                                                         ElasticsearchConverter elasticsearchConverter,
+                                                         SimpleElasticsearchMappingContext mappingContext,
+                                                         EntityMapper entityMapper) {
+        return new JestElasticsearchTemplate(
+            jestClient,
+            elasticsearchConverter,
+            new DefaultJestResultsMapper(mappingContext, entityMapper));
     }
 
     public class CustomEntityMapper implements EntityMapper {

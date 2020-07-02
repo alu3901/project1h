@@ -1,9 +1,9 @@
 version: '2'
 services:
-  project1h-elasticsearch:
+  1hproject-elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.8.8
     # volumes:
-    #     - ~/volumes/jhipster/project1h/elasticsearch/:/usr/share/elasticsearch/data/
+    #     - ~/volumes/jhipster/1HProject/elasticsearch/:/usr/share/elasticsearch/data/
     ports:
       - 9200:9200
       - 9300:9300

@@ -11,10 +11,6 @@
       "error": "Error"
     },
     "indicator": {
-      "discoveryComposite": "Descubrimiento compuesto",
-      "refreshScope": "Alcance de actualización de microservicios",
-      "clientConfigServer": "Servidor de configuración de microservicio",
-      "hystrix": "Hystrix",
       "diskSpace": "Espacio en disco",
       "mail": "Email",
       "ping": "Application",

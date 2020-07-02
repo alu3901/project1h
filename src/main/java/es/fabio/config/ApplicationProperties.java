@@ -3,7 +3,7 @@ package es.fabio.config;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * Properties specific to Project 1 H.
+ * Properties specific to 1 H Project.
  * <p>
  * Properties are configured in the {@code application.yml} file.
  * See {@link io.github.jhipster.config.JHipsterProperties} for a good example.

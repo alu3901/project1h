@@ -69,4 +69,4 @@ import { MockEventManager } from './helpers/mock-event-manager.service';
   ],
   imports: [HttpClientTestingModule],
 })
-export class Project1HTestModule {}
+export class AppTestModule {}

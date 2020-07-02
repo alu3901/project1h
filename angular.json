@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "project-1-h": {
+    "1-h-project": {
       "root": "",
       "sourceRoot": "src/main/webapp",
       "projectType": "application",
@@ -29,7 +29,7 @@
       "architect": {}
     }
   },
-  "defaultProject": "project-1-h",
+  "defaultProject": "1-h-project",
   "cli": {
     "packageManager": "npm"
   }

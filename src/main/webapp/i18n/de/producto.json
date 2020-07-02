@@ -1,0 +1,28 @@
+{
+  "App": {
+    "producto": {
+      "home": {
+        "title": "Productos",
+        "createLabel": "Producto erstellen",
+        "createOrEditLabel": "Producto erstellen oder bearbeiten",
+        "search": "Suche nach Producto",
+        "notFound": "No Productos found"
+      },
+      "created": "Producto erstellt mit ID {{ param }}",
+      "updated": "Producto aktualisiert mit ID {{ param }}",
+      "deleted": "Producto gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Producto {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Producto"
+      },
+      "name": "Name",
+      "description": "Description",
+      "price": "Price",
+      "size": "Size",
+      "image": "Image",
+      "productCategory": "Product Category"
+    }
+  }
+}

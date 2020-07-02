@@ -1,6 +1,6 @@
 package es.fabio.cucumber;
 
-import es.fabio.Project1HApp;
+import es.fabio.Application;
 import io.cucumber.java.Before;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
@@ -8,7 +8,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 @SpringBootTest
 @WebAppConfiguration
-@ContextConfiguration(classes = Project1HApp.class)
+@ContextConfiguration(classes = Application.class)
 public class CucumberContextConfiguration {
 
     @Before

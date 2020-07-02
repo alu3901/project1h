@@ -1,11 +1,11 @@
 version: '2'
 services:
-  project1h-postgresql:
+  1hproject-postgresql:
     image: postgres:12.3
     # volumes:
-    #     - ~/volumes/jhipster/project1h/postgresql/:/var/lib/postgresql/data/
+    #     - ~/volumes/jhipster/1HProject/postgresql/:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_USER=project1h
+      - POSTGRES_USER=1HProject
       - POSTGRES_PASSWORD=
       - POSTGRES_HOST_AUTH_METHOD=trust
     ports:

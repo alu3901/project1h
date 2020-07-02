@@ -2,7 +2,7 @@ package es.fabio.service;
 
 import es.fabio.config.Constants;
 
-import es.fabio.Project1HApp;
+import es.fabio.Application;
 import es.fabio.domain.User;
 import io.github.jhipster.config.JHipsterProperties;
 import org.junit.jupiter.api.BeforeEach;
@@ -40,7 +40,7 @@ import static org.mockito.Mockito.*;
 /**
  * Integration tests for {@link MailService}.
  */
-@SpringBootTest(classes = Project1HApp.class)
+@SpringBootTest(classes = Application.class)
 public class MailServiceIT {
 
     private static final String[] languages = {

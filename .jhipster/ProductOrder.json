@@ -1,0 +1,52 @@
+{
+  "name": "ProductOrder",
+  "fields": [
+    {
+      "fieldName": "placedDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "OrderStatus",
+      "fieldValues": "COMPLETED,PENDING,CANCELLED",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "code",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "invoiceId",
+      "fieldType": "Long"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "orderItem",
+      "otherEntityRelationshipName": "order",
+      "relationshipName": "orderItem"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "customer",
+      "otherEntityRelationshipName": "order",
+      "relationshipValidateRules": "required",
+      "relationshipName": "customer",
+      "otherEntityField": "email"
+    }
+  ],
+  "changelogDate": "20200702213226",
+  "entityTableName": "product_order",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

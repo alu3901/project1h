@@ -1,7 +1,7 @@
 <nav class="navbar navbar-light navbar-expand-md bg-light">
     <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
         <span class="logo-img"></span>
-        <span jhiTranslate="global.title" class="navbar-title">Project1h</span> <span class="navbar-version">{{ version }}</span>
+        <span jhiTranslate="global.title" class="navbar-title">1HProject</span> <span class="navbar-version">{{ version }}</span>
     </a>
     <a class="navbar-toggler d-lg-none" href="javascript:void(0);" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleNavbar()">
         <fa-icon icon="bars"></fa-icon>
@@ -27,6 +27,36 @@
                     </span>
                 </a>
                 <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">
+                    <li>
+                        <a class="dropdown-item" routerLink="producto" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.producto">Producto</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="product-category" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.productCategory">Product Category</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="customer" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.customer">Customer</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="product-order" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.productOrder">Product Order</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="order-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.orderItem">Order Item</span>
+                        </a>
+                    </li>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>

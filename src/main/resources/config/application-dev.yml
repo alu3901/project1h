@@ -19,14 +19,6 @@ logging:
     io.github.jhipster: DEBUG
     es.fabio: DEBUG
 
-eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    enabled: false # By default, the JHipster Registry is not used in the "dev" profile
-    service-url:
-      defaultZone: http://admin:${jhipster.registry.password}@localhost:8761/eureka/
-
 management:
   health:
     elasticsearch:
@@ -48,9 +40,20 @@ spring:
   jackson:
     serialization:
       indent-output: true
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:h2:file:./target/h2db/db/1hproject;DB_CLOSE_DELAY=-1
+    username: 1HProject
+    password:
+    hikari:
+      poolName: Hikari
+      auto-commit: false
   h2:
     console:
       enabled: false
+  jpa:
+    database-platform: io.github.jhipster.domain.util.FixedH2Dialect
+    show-sql: true
   data:
     elasticsearch:
       properties:
@@ -59,7 +62,6 @@ spring:
   liquibase:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
     contexts: dev, faker
-    url: jdbc:h2:file:target/h2db/db/project1h;DB_CLOSE_DELAY=-1
   mail:
     host: localhost
     port: 25
@@ -67,21 +69,8 @@ spring:
     password:
   messages:
     cache-duration: PT1S # 1 second, see the ISO 8601 standard
-  r2dbc:
-    url: r2dbc:h2:file:///./target/h2db/db/project1h?options=DB_CLOSE_DELAY=-1
-    username: project1h
-    password:
   thymeleaf:
     cache: false
-  sleuth:
-    sampler:
-      probability: 1 # report 100% of traces
-  zipkin: # Use the "zipkin" Maven profile to have the Spring Cloud Zipkin dependencies
-    base-url: http://localhost:9411
-    enabled: false
-    locator:
-      discovery:
-        enabled: true
 
 server:
   port: 8080
@@ -93,6 +82,10 @@ server:
 # ===================================================================
 
 jhipster:
+  cache: # Cache configuration
+    ehcache: # Ehcache configuration
+      time-to-live-seconds: 3600 # By default objects stay 1 hour in the cache
+      max-entries: 100 # Number of objects in each cache entry
   # CORS is only enabled by default with the "dev" profile, so BrowserSync can access the API
   cors:
     allowed-origins: '*'
@@ -105,7 +98,7 @@ jhipster:
     authentication:
       jwt:
         # This token must be encoded using Base64 and be at least 256 bits long (you can type `openssl rand -base64 64` on your command line to generate a 512 bits one)
-        base64-secret: ZDAyNzAxMDk1NWRjMDkzYzU5NjBlZGFjZGZjYjVkYzdmNmI0ZDE1MzE4NmMwMzgyMDM2MzE5MzQwYWM2ZTdiMjUzZWRlNjFhMWU2MTVhNzVmYTc2ODljOGJmY2JkZmJiYmUyYjM1YzQyNzY1NmU1ODUyMzhmNzAwMTRiODhiNzc=
+        base64-secret: ZmFkMTk4MzZmYzA1Y2YyMjJmZWUyNjFjN2E5YmY5NjdhMTc1NzAyODQ0MTNiNzc1ZDY1YTlhNGQxZTJkYzQwMWIzMDVhY2ZkYWNjNGZmYmUyMTNkNzM4OTc4MDBjODFiOGU2NTZkOTg3MGJhMDMwMTg2NDQ3MTJhZDI5M2JkNDA=
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
         token-validity-in-seconds-for-remember-me: 2592000

@@ -5,7 +5,7 @@ import { Subject, of } from 'rxjs';
 import { TranslateModule, TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 import { MainComponent } from 'app/layouts/main/main.component';
-import { Project1HTestModule } from '../../../test.module';
+import { AppTestModule } from '../../../test.module';
 import { MockRouter } from '../../../helpers/mock-route.service';
 
 describe('Component Tests', () => {
@@ -19,7 +19,7 @@ describe('Component Tests', () => {
 
     beforeEach(async(() => {
       TestBed.configureTestingModule({
-        imports: [Project1HTestModule, TranslateModule.forRoot()],
+        imports: [AppTestModule, TranslateModule.forRoot()],
         declarations: [MainComponent],
         providers: [Title],
       })

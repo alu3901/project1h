@@ -75,7 +75,7 @@ import { fontAwesomeIcons } from './icons/font-awesome-icons';
     },
   ],
 })
-export class Project1HCoreModule {
+export class AppCoreModule {
   constructor(iconLibrary: FaIconLibrary, dpConfig: NgbDatepickerConfig, languageService: JhiLanguageService) {
     registerLocaleData(locale);
     iconLibrary.addIcons(...fontAwesomeIcons);

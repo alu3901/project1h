@@ -1,0 +1,28 @@
+{
+  "App": {
+    "producto": {
+      "home": {
+        "title": "Productos",
+        "createLabel": "Create a new Producto",
+        "createOrEditLabel": "Create or edit a Producto",
+        "search": "Search for Producto",
+        "notFound": "No Productos found"
+      },
+      "created": "A new Producto is created with identifier {{ param }}",
+      "updated": "A Producto is updated with identifier {{ param }}",
+      "deleted": "A Producto is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Producto {{ id }}?"
+      },
+      "detail": {
+        "title": "Producto"
+      },
+      "name": "Name",
+      "description": "Description",
+      "price": "Price",
+      "size": "Size",
+      "image": "Image",
+      "productCategory": "Product Category"
+    }
+  }
+}

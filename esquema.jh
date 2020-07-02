@@ -1,4 +1,4 @@
-entity Product {
+entity Producto {
     name String required
     description String
     price BigDecimal required min(0)
@@ -57,17 +57,17 @@ relationship OneToOne {
 }
 
 relationship ManyToOne {
-	OrderItem{product(name) required} to Product
+	OrderItem{producto(name) required} to Producto
 }
 
 relationship OneToMany {
    Customer{order} to ProductOrder{customer(email) required},
    ProductOrder{orderItem} to OrderItem{order(code) required} ,
-   ProductCategory{product} to Product{productCategory(name)}
+   ProductCategory{producto} to Producto{productCategory(name)}
 }
 
-service Product, ProductCategory, Customer, ProductOrder, OrderItem with serviceClass
-paginate Product, Customer, ProductOrder, OrderItem with infinite-scroll
+paginate Producto, Customer, ProductOrder, OrderItem  with infinite-scroll
+
 // Use Data Transfert Objects (DTO)
 dto * with mapstruct
 

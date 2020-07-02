@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { Project1HSharedModule } from 'app/shared/shared.module';
+import { AppSharedModule } from 'app/shared/shared.module';
 import { UserManagementComponent } from './user-management.component';
 import { UserManagementDetailComponent } from './user-management-detail.component';
 import { UserManagementUpdateComponent } from './user-management-update.component';
@@ -9,7 +9,7 @@ import { UserManagementDeleteDialogComponent } from './user-management-delete-di
 import { userManagementRoute } from './user-management.route';
 
 @NgModule({
-  imports: [Project1HSharedModule, RouterModule.forChild(userManagementRoute)],
+  imports: [AppSharedModule, RouterModule.forChild(userManagementRoute)],
   declarations: [
     UserManagementComponent,
     UserManagementDetailComponent,

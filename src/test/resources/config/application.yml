@@ -13,19 +13,40 @@
 # http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
 # ===================================================================
 
-eureka:
-  client:
-    enabled: false
-  instance:
-    appname: project1h
-    instanceId: project1h:${spring.application.instance-id:${random.value}}
-
 spring:
+  profiles:
+  # Uncomment the following line to enable tests against production database type rather than H2, using Testcontainers
+  #active: testcontainers
   application:
-    name: project1h
+    name: 1HProject
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:h2:mem:1HProject;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    name:
+    username:
+    password:
+    hikari:
+      auto-commit: false
   jackson:
     serialization:
       write-durations-as-timestamps: false
+  jpa:
+    database-platform: io.github.jhipster.domain.util.FixedH2Dialect
+    open-in-view: false
+    show-sql: false
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+    properties:
+      hibernate.id.new_generator_mappings: true
+      hibernate.connection.provider_disables_autocommit: true
+      hibernate.cache.use_second_level_cache: false
+      hibernate.cache.use_query_cache: false
+      hibernate.generate_statistics: false
+      hibernate.hbm2ddl.auto: validate
+      hibernate.jdbc.time_zone: UTC
   data:
     elasticsearch:
       properties:
@@ -36,26 +57,21 @@ spring:
           max_local_storage_nodes: 2
   liquibase:
     contexts: test
-    url: jdbc:h2:mem:project1h;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
   mail:
     host: localhost
   main:
     allow-bean-definition-overriding: true
   messages:
     basename: i18n/messages
-  r2dbc:
-    url: r2dbc:h2:mem:///project1h?options=DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-    username: r2dbc
-    password:
   task:
     execution:
-      thread-name-prefix: project-1-h-task-
+      thread-name-prefix: 1-h-project-task-
       pool:
         core-size: 1
         max-size: 50
         queue-capacity: 10000
     scheduling:
-      thread-name-prefix: project-1-h-scheduling-
+      thread-name-prefix: 1-h-project-scheduling-
       pool:
         size: 1
   thymeleaf:
@@ -73,7 +89,7 @@ server:
 
 jhipster:
   clientApp:
-    name: 'project1HApp'
+    name: 'App'
   logging:
     # To test json console appender
     use-json-format: false
@@ -89,7 +105,7 @@ jhipster:
     authentication:
       jwt:
         # This token must be encoded using Base64 (you can type `echo 'secret-key'|base64` on your command line)
-        base64-secret: ZDAyNzAxMDk1NWRjMDkzYzU5NjBlZGFjZGZjYjVkYzdmNmI0ZDE1MzE4NmMwMzgyMDM2MzE5MzQwYWM2ZTdiMjUzZWRlNjFhMWU2MTVhNzVmYTc2ODljOGJmY2JkZmJiYmUyYjM1YzQyNzY1NmU1ODUyMzhmNzAwMTRiODhiNzc=
+        base64-secret: ZmFkMTk4MzZmYzA1Y2YyMjJmZWUyNjFjN2E5YmY5NjdhMTc1NzAyODQ0MTNiNzc1ZDY1YTlhNGQxZTJkYzQwMWIzMDVhY2ZkYWNjNGZmYmUyMTNkNzM4OTc4MDBjODFiOGU2NTZkOTg3MGJhMDMwMTg2NDQ3MTJhZDI5M2JkNDA=
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
   metrics:
